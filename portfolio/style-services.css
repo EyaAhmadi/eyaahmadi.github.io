@@ -1,0 +1,493 @@
+/* =====================
+   Enhanced Services Page Styles
+===================== */
+
+.services-page {
+    padding: 6rem var(--spacing-xl) var(--spacing-xl);
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    /* Responsive font size */
+    font-weight: 600;
+    margin-bottom: var(--spacing-xxl);
+    text-align: center;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.services-title span {
+    color: var(--primary, #9333ea);
+    background: linear-gradient(135deg, #9333ea, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    /* Remove text shadow for gradient text */
+}
+
+/* Enhanced Services Grid with Better Performance */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    container-type: inline-size;
+    /* Modern container queries support */
+}
+
+/* Enhanced Mobile Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .services-page {
+        padding: 4rem var(--spacing-md) var(--spacing-md);
+    }
+}
+
+/* Ultra-wide screen optimization */
+@media (min-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(400px, 1fr));
+        max-width: 900px;
+    }
+}
+
+/* =====================
+   Enhanced Service Card Styling
+===================== */
+
+.service-card {
+    position: relative;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Safari support */
+    box-shadow: var(--shadow-lg);
+    border: 2px solid transparent;
+    transition: transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        background-color var(--transition-normal);
+    color: var(--text-primary);
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--card-bg);
+    will-change: transform, box-shadow;
+    /* Optimize for hover effects */
+    isolation: isolate;
+    /* Create stacking context */
+}
+
+/* Enhanced Gradient Border with Better Performance */
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    padding: 2px;
+    background: linear-gradient(135deg, #e81cff, #40c9ff, #9333ea);
+    background-size: 300% 300%;
+    animation: borderGradient 8s ease infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    z-index: -1;
+    will-change: background-position;
+    /* Optimize for gradient animation */
+}
+
+/* Enhanced Border Gradient Animation */
+@keyframes borderGradient {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Enhanced Hover Effects */
+.service-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(148, 0, 211, 0.4),
+        0 5px 15px rgba(148, 0, 211, 0.2);
+}
+
+/* Enhanced Focus States for Accessibility */
+.service-card:focus-within {
+    outline: 2px solid #9333ea;
+    outline-offset: 2px;
+}
+
+/* =====================
+   Enhanced Icon Style with Better Performance
+===================== */
+
+.service-card .icon {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    /* Responsive icon size */
+    margin-bottom: var(--spacing-md);
+    color: #9333ea;
+    animation: glow 2.5s infinite alternate ease-in-out;
+    will-change: text-shadow;
+    /* Optimize for glow animation */
+    display: inline-block;
+}
+
+/* Enhanced Glow Animation */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 4px #9333ea,
+            0 0 8px #9333ea,
+            0 0 12px rgba(147, 51, 234, 0.5);
+    }
+
+    100% {
+        text-shadow: 0 0 6px #9333ea,
+            0 0 12px #9333ea,
+            0 0 18px rgba(147, 51, 234, 0.8);
+    }
+}
+
+/* =====================
+   Enhanced Text Content
+===================== */
+
+.service-card h2 {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    /* Responsive heading */
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.service-card p {
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    /* Responsive paragraph */
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+}
+
+/* Enhanced List Styling */
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card ul li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    /* Responsive list items */
+    line-height: 1.5;
+    color: var(--text-secondary);
+    transition: color var(--transition-normal);
+}
+
+/* Enhanced Checkmark with Better Performance */
+.service-card ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #40c9ff;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-shadow: 0 0 4px rgba(64, 201, 255, 0.5);
+    animation: checkmarkPulse 3s infinite ease-in-out;
+}
+
+/* Enhanced Checkmark Animation */
+@keyframes checkmarkPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Hover effect for list items */
+.service-card ul li:hover {
+    color: var(--text-primary);
+}
+
+/* =====================
+   Enhanced Light/Dark Themes
+===================== */
+
+body:not(.dark) .service-card {
+    --card-bg: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark) .service-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .service-card {
+    background: rgba(0, 0, 0, 0.3);
+    color: #f3f3f3;
+    --card-bg: #111827;
+}
+
+body.dark .service-card:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* =====================
+   Enhanced Responsive Design
+===================== */
+
+@media (max-width: 768px) {
+    .services-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .service-card {
+        padding: var(--spacing-lg);
+    }
+
+    .service-card .icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Enhanced tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .services-grid {
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.75rem;
+    }
+}
+
+/* =====================
+   Enhanced CTA Section
+===================== */
+
+.cta-box {
+    margin-top: 6rem;
+    padding: var(--spacing-xl);
+    background: var(--cta-bg);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: background var(--transition-normal),
+        transform var(--transition-normal);
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    will-change: background-position, transform;
+    /* Optimize for animations */
+}
+
+/* Enhanced CTA Box Hover Effect */
+.cta-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced CTA Typography */
+.cta-box h3,
+.cta-box p {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-box h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.cta-box p {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+/* Enhanced Light Theme CTA */
+body:not(.dark) .cta-box p {
+    color: white !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced CTA Button */
+.cta-btn {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #9333ea, #8b5cf6);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+    /* Optimize for hover effects */
+}
+
+/* Enhanced CTA Button Hover Effects */
+.cta-btn:hover {
+    background: linear-gradient(135deg, #a855f7, #9333ea);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+}
+
+/* Enhanced CTA Button Focus */
+.cta-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Enhanced CTA Button Active State */
+.cta-btn:active {
+    transform: translateY(0) scale(1);
+}
+
+/* =====================
+   Enhanced Animations for Reduced Motion
+===================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-card .icon,
+    .service-card ul li::before,
+    .service-card::before,
+    .cta-box {
+        animation: none !important;
+    }
+
+    .service-card:hover,
+    .cta-box:hover,
+    .cta-btn:hover {
+        transform: none !important;
+    }
+}
+
+/* =====================
+   Enhanced Print Styles
+===================== */
+
+@media print {
+    .service-card {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        break-inside: avoid;
+    }
+
+    .service-card::before {
+        display: none !important;
+    }
+
+    .cta-box {
+        background: #f0f0f0 !important;
+        color: black !important;
+    }
+
+    .cta-btn {
+        background: #333 !important;
+        color: white !important;
+    }
+}
+
+/* =====================
+   Enhanced Container Queries (Modern Browsers)
+===================== */
+
+@container (max-width: 400px) {
+    .service-card {
+        padding: var(--spacing-md);
+    }
+
+    .service-card .icon {
+        font-size: 1.25rem;
+    }
+}
+
+/* =====================
+   Enhanced Loading States
+===================== */
+
+.service-card.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.service-card.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    to {
+        left: 100%;
+    }
+}
+
+/* =====================
+   Enhanced High Contrast Mode Support
+===================== */
+
+@media (prefers-contrast: high) {
+    .service-card {
+        border: 2px solid currentColor;
+    }
+
+    .service-card .icon {
+        animation: none;
+    }
+
+    .service-card ul li::before {
+        animation: none;
+    }
+}
