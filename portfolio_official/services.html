@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Services offered by Eya Ahmadi - AI Solutions, Full-Stack Development, System Architecture, and Data Processing." />
+    <meta name="theme-color" content="#7c3aed" />
+    <title>Services | Eya Ahmadi</title>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-services.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+</head>
+
+<body class="fade-in">
+    <div class="cursor" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- SPA dynamic content -->
+    <main id="main-content">
+        <section class="section fade services-page">
+
+            <h1 class="services-title"><span>My</span> Services</h1>
+
+            <div class="services-grid">
+
+                <!-- AI-Powered Solutions -->
+                <div class="service-card fade">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h2>AI-Powered Solutions & Agentic Systems</h2>
+                    <p>I design intelligent, agentic systems that go beyond automation—systems capable of reasoning,
+                        adapting, and interacting autonomously. Using machine learning, deep learning, large language
+                        models (LLMs), and data-driven design, I build solutions that enable real-time decision-making,
+                        create human-like interactions, and deliver personalized intelligent recommendations.</p>
+                    <ul>
+                        <li> Development of agentic systems for adaptive, context-aware behavior.</li>
+                        <li> Machine learning and deep learning with Scikit-learn, PyTorch, and TensorFlow.</li>
+                        <li> Integration of large language models (LLMs) for natural language understanding and
+                            generation.</li>
+                        <li> Intelligent recommendation systems tailored to user context and data.</li>
+                        <li> Real-time classification, prediction, and insight generation.</li>
+                        <li> Seamless integration with APIs, sensors, and external data sources.</li>
+                    </ul>
+                </div>
+
+                <!-- Full-Stack Development -->
+                <div class="service-card fade">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h2>Full-Stack Web & Mobile Development</h2>
+                    <p>I build modern, responsive applications that combine intuitive user experiences with robust
+                        backend functionality. From sleek interfaces to scalable server-side logic, I deliver full-stack
+                        solutions optimized for performance, security, and real-time interaction.</p>
+                    <ul>
+                        <li> Cross-platform development for web and mobile.</li>
+                        <li> Interactive and responsive frontends.</li>
+                        <li> Scalable backend systems.</li>
+                        <li> Real-time features: chat, authentication, and live data sync.</li>
+                        <li> Flexible database support.</li>
+                    </ul>
+                </div>
+
+                <!-- Systems Architecture -->
+                <div class="service-card fade">
+                    <div class="icon"><i class="fas fa-network-wired"></i></div>
+                    <h2>Systems Architecture & UML Design</h2>
+                    <p>I design software systems using structured, modular approaches that ensure scalability, security,
+                        and maintainability. By combining proven architectural patterns (like MVC and 3-Tier) with clear
+                        UML modeling, I also help translate ideas into well-defined system blueprints that guide
+                        development
+                        from concept to deployment.</p>
+                    <ul>
+                        <li> Modular and scalable architecture</li>
+                        <li> Detailed UML: class, sequence, and use case diagrams</li>
+                        <li> Architecture patterns: MVC, 3-tier, REST</li>
+                    </ul>
+                </div>
+
+                <!-- Data Pre-Processing -->
+                <div class="service-card fade">
+                    <div class="icon"><i class="fas fa-database"></i>
+                    </div>
+                    <h2>Data Cleaning & Pre-processing</h2>
+                    <p>I provide thorough data cleaning and pre-processing services to ensure your datasets are
+                        accurate, consistent, and analysis-ready. By applying industry-standard techniques, I transform
+                        raw data into high-quality inputs that drive reliable insights and robust machine learning
+                        models.</p>
+                    <ul>
+                        <li> Handling missing, inconsistent, and duplicate data.</li>
+                        <li> Data normalization, transformation, and encoding.</li>
+                        <li> Outlier detection and treatment.</li>
+                        <li> Feature extraction and selection preparation.</li>
+                        <li> Integration and consolidation of multiple data sources.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box">
+                <h3>Let's make your app intelligent, or create one for you</h3>
+                <p>I’d love to learn about what you're building and how I can contribute to enhancing it through
+                    intelligent
+                    software solutions. Whether you're developing an AI-powered system, need help optimizing your
+                    application architecture, or are exploring ways to integrate AI into your workflow, let’s connect
+                    and
+                    explore how we can build smarter, more impactful technology together.</p>
+                <a href="contact.html" class="cta-btn" data-link>Let’s Talk!</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3"></script>
+    <script src="main.js"></script>
+    <script>
+        fetch('header.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                if (typeof setupThemeToggle === 'function') {
+                    setupThemeToggle();
+                }
+            });
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+                if (typeof animateSections === 'function') {
+                    animateSections();
+                }
+            });
+    </script>
+</body>
+
+</html>
